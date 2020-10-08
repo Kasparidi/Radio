@@ -42,10 +42,10 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation >= 9) {
+        if (currentStation > 9) {
             return;
         }
-        if (currentStation <= 0) {
+        if (currentStation < 0) {
             return;
         }
         this.currentStation = currentStation;

@@ -99,4 +99,44 @@ class RadioTest {
         radio.setCurrentStation(currentStation);
         assertEquals(expected, radio.getCurrentStation());
     }
+
+    @Test
+    void onNextStationInRange() {
+        Radio radio = new Radio();
+        int currentStation = 5;
+        int expected = 6;
+        radio.setCurrentStation(currentStation);
+        radio.onNextStation();
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @Test
+    void onNextStationMax() {
+        Radio radio = new Radio();
+        int currentStation = 9;
+        int expected = 0;
+        radio.setCurrentStation(currentStation);
+        radio.onNextStation();
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @Test
+    void onPreviousStationMin() {
+        Radio radio = new Radio();
+        int currentStation = 0;
+        int expected = 9;
+        radio.setCurrentStation(currentStation);
+        radio.onPreviousStation();
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @Test
+    void onPreviousStationInRange() {
+        Radio radio = new Radio();
+        int currentStation = 5;
+        int expected = 4;
+        radio.setCurrentStation(currentStation);
+        radio.onPreviousStation();
+        assertEquals(expected, radio.getCurrentStation());
+    }
 }
