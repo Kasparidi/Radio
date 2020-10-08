@@ -9,10 +9,10 @@ public class Radio {
     }
 
     public void setSoundVolume(int soundVolume) {
-        if (soundVolume >= 10) {
+        if (soundVolume > 10) {
             return;
         }
-        if (soundVolume <= 0) {
+        if (soundVolume < 0) {
             return;
         }
         this.soundVolume = soundVolume;
@@ -23,12 +23,13 @@ public class Radio {
     }
 
     public void onNextSound() {
-        if (soundVolume < 10) {
-            this.soundVolume++;
-        }
         if (soundVolume == 10) {
             this.soundVolume = soundVolume;
         }
+        if (soundVolume < 10) {
+            this.soundVolume++;
+        }
+
     }
 
     public void onPreviousSound() {
