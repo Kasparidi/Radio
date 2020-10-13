@@ -33,10 +33,10 @@ public class Radio {
     }
 
     public void onPreviousSound() {
-        if(soundVolume > 0) {
+        if (soundVolume > 0) {
             this.soundVolume--;
         }
-        if(soundVolume == 0) {
+        if (soundVolume == 0) {
             this.soundVolume = soundVolume;
         }
     }
