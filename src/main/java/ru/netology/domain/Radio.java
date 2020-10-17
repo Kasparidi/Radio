@@ -2,72 +2,36 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentStation;
-    private int soundVolume;
-
-    public int getSoundVolume() {
-        return soundVolume;
-    }
-
-    public void setSoundVolume(int soundVolume) {
-        if (soundVolume > 10) {
-            return;
-        }
-        if (soundVolume < 0) {
-            return;
-        }
-        this.soundVolume = soundVolume;
-    }
+    private int minStation;
+    private int maxStation = 9;   //количество станций
+    private int minVolume;
+    private int maxVolume = 100;
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
     }
-
-    public void onNextSound() {
-        if (soundVolume == 10) {
-            this.soundVolume = soundVolume;
+//2
+    public Radio(int currentStation, int minStation, int maxStation) {
+        if (currentStation < maxStation) {
         }
-        if (soundVolume < 10) {
-            this.soundVolume++;
-        }
-
-    }
-
-    public void onPreviousSound() {
-        if (soundVolume > 0) {
-            this.soundVolume--;
-        }
-        if (soundVolume == 0) {
-            this.soundVolume = soundVolume;
-        }
-    }
-
-    public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
-            return;
-        }
-        if (currentStation < 0) {
-            return;
+        if (currentStation > minStation) {
         }
         this.currentStation = currentStation;
+
+        if (currentStation > maxStation) {
+            this.currentStation = maxStation;
+        }
+        if (currentStation < minStation) {
+            this.currentStation = minStation;
+        }
+        this.minStation = minStation;
+        this.maxStation = maxStation;
     }
 
-    public void onNextStation() {
-        if (currentStation < 9) {
-            this.currentStation++;
-        }
-        if (currentStation == 9) {
-            this.currentStation = 0;
-        }
-    }
 
-    public void onPreviousStation() {
-        if (currentStation > 0) {
-            this.currentStation--;
-        }
-        if (currentStation == 0) {
-            this.currentStation = 9;
-        }
-    }
+
+
 
 }
 
